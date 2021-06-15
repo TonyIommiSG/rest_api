@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request, jsonify,render_template,Blueprint
-from flask_sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy #used to make SQL queries in python
 from flask_restful import Api,Resource
 from flask_migrate import Migrate
 
@@ -58,6 +58,8 @@ db.create_all()
 ###################################################
 ################ RESOURCES ########################
 ##################################################
+
+#Here is where we make the API classes
 
 class RoomResource(Resource):
     def get(self,name,number,occupant):
