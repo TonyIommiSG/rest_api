@@ -32,7 +32,7 @@ api = Api(app)
 
 
 class Room(db.Model):
-    __tablename__= 'Rooms'
+    __tablename__= 'Room'
     id = db.Column(db.Integer,primary_key=True)
     name = db.Column(db.String(80))
     number = db.Column(db.Integer)
