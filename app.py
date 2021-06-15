@@ -1,5 +1,5 @@
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify,render_template,Blueprint
 from flask_sqlalchemy import SQLAlchemy
 from flask_restful import Api,Resource
 from flask_migrate import Migrate
@@ -116,6 +116,24 @@ class AllRooms(Resource):
 
 api.add_resource(RoomResource, '/room/<string:name>-<int:number>-<string:occupant>')
 api.add_resource(AllRooms,'/rooms')
+
+###################################################
+################ Views ############################
+##################################################
+
+core = Blueprint('core',__name__)
+
+@core.route('/')
+def index():
+    '''
+    This is the home page view.
+    '''
+    return render_template('index.html')
+
+###################################################
+################ Blueprint Configs ################
+##################################################
+app.register_blueprint(core)
 
 if __name__ == '__main__':
     app.run(debug=True)
